@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import style from "./Todo.module.css";
-import { removeTodo, toggleTodoComplete } from "./../store/todoSlice";
+import { deleteTodo, toggleTodo } from "./../store/todoSlice";
 
-const TodoItem = ({ id, completed, text }) => {
+const TodoItem = ({ id, completed, title }) => {
   const dispatch = useDispatch();
 
   return (
@@ -12,16 +12,16 @@ const TodoItem = ({ id, completed, text }) => {
         type="checkbox"
         checked={completed}
         onChange={() => {
-          dispatch(toggleTodoComplete({ id }));
+          dispatch(toggleTodo(id));
         }}
       />
 
-      <span>{text}</span>
+      <span>{title}</span>
 
       <button
         className={style.removeButton}
         onClick={() => {
-          dispatch(removeTodo({ id }));
+          dispatch(deleteTodo(id));
         }}
       >
         X

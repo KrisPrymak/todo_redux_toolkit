@@ -13,7 +13,7 @@ const TodoList = () => {
           key={todo.id}
           id={todo.id}
           completed={todo.completed}
-          text={todo.text}
+          title={todo.title}
         />
       ))}
     </ul>
